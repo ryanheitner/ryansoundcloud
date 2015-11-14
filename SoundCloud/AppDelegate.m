@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "SCAPI.h"
+
+#import "SCConfig.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +20,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initializeDefaultPreferences];
+    
+    
+    // soundcloud keys are in Config.plist
+    NSString *soundCloudApiKey = [SCConfig valueForKey:kKeySoundCloudClientID];
+    NSString *soundCloudAPISecret = [SCConfig valueForKey:kKeySoundCloudClientSecret];
+
+    [SCSoundCloud setClientID:soundCloudApiKey
+                       secret:soundCloudAPISecret
+                  redirectURL:[NSURL URLWithString:@"ryansoundcloud://oauth"]];
     return YES;
+}
+- (void) initializeDefaultPreferences{
+    // initialize default preferences
+    NSDictionary *initialDefauls = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:initialDefauls];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

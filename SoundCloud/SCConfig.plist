@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SoundCloudClientID</key>
+	<string>1cee3e8f71ac0efdf7b60ec13da151e2</string>
+	<key>SoundCloudClientSecret</key>
+	<string>5b0faf16542c23427a27554c64e534a6</string>
+	<key>SoundCloudRedirectURL</key>
+	<string>ryansoundcloud://oauth</string>
+	<key>SoundCloudAppID</key>
+	<string>d652006c469530a4a7d6184b18e16c81</string>
+</dict>
+</plist>

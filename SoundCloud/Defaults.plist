@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>minutesBeforeRefresh</key>
+	<integer>2</integer>
+	<key>autoconnect</key>
+	<false/>
+	<key>initialView</key>
+	<integer>30</integer>
+	<key>mediaProviderSelected1</key>
+	<false/>
+	<key>mediaProviderSelected2</key>
+	<false/>
+	<key>mediaProviderSelected3</key>
+	<false/>
+	<key>mediaProviderSelected4</key>
+	<true/>
+	<key>mediaProviderSelected5</key>
+	<false/>
+	<key>mediaProviderSelected6</key>
+	<false/>
+	<key>logging</key>
+	<false/>
+	<key>loggingMail</key>
+	<string>hyperlync.chrome@gmail.com</string>
+	<key>previousPlayerType</key>
+	<integer>1</integer>
+	<key>previousPlayerID</key>
+	<string></string>
+</dict>
+</plist>
