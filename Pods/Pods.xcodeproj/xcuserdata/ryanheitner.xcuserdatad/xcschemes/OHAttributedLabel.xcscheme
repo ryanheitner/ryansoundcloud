@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AB50E73AC8F459F754080362'
+               BlueprintIdentifier = '559C00AC41A09E366762870E'
                BlueprintName = 'OHAttributedLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libOHAttributedLabel.a'>

@@ -8,30 +8,73 @@
 
 #import "AppDelegate.h"
 #import "SCAPI.h"
-
+#import "MyLogFormat.h"
 #import "SCConfig.h"
 
-@interface AppDelegate ()
+#import <DDASLLogger.h>
+#import <DDTTYLogger.h>
+#import "CLDDLoglevel.h"
 
+
+@interface AppDelegate ()
 @end
 
 @implementation AppDelegate
+{
+    
+}
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initializeDefaultPreferences];
-    
-    
+    [self initializeLogging];
+    DDLogVerbose(@"");
     // soundcloud keys are in Config.plist
-    NSString *soundCloudApiKey = [SCConfig valueForKey:kKeySoundCloudClientID];
-    NSString *soundCloudAPISecret = [SCConfig valueForKey:kKeySoundCloudClientSecret];
+    // we only access public resources so not any need for secret and redirect URI1cee3e8f71ac0efdf7b60ec13da151e2
 
-    [SCSoundCloud setClientID:soundCloudApiKey
-                       secret:soundCloudAPISecret
-                  redirectURL:[NSURL URLWithString:@"ryansoundcloud://oauth"]];
+    
+    
     return YES;
 }
+
+- (void)initializeLogging
+{
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    MyLogFormat *logFormat = [[MyLogFormat alloc] init];
+    [DDTTYLogger sharedInstance].logFormatter = logFormat;
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+#ifdef DEBUG
+    [CLDDLoglevel setLogLevel:DDLogLevelDebug];
+#else
+    [CLDDLoglevel setLogLevel:DDLogLevelError];
+#endif
+    self.fileLogger = [[DDFileLogger alloc] init];
+    self.fileLogger.rollingFrequency = 60*60*24;
+    [self.fileLogger.logFileManager setMaximumNumberOfLogFiles:1];
+    self.fileLogger.logFormatter = logFormat;
+    [DDLog addLogger:self.fileLogger];
+    
+    
+    // we turn the logging off again if it was on
+    BOOL loggingOn = [[NSUserDefaults standardUserDefaults] boolForKey:kKeyLogging];
+    if (loggingOn) {
+        [CLDDLoglevel setLogLevel:DDLogLevelVerbose];
+        DDLogDebug(@"settings %@",[SCConfig configDictionary]);
+        NSDictionary *initialDefauls = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]];
+        DDLogDebug(@"initialDefauls %@",initialDefauls);
+        
+
+        NSArray *keys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
+        for(NSString* key in keys){
+            DDLogDebug(@"value: %@ forKey: %@",[[NSUserDefaults standardUserDefaults] valueForKey:key],key);
+        }
+    }
+    DDLogError(@"ddloglevel verbose %d error %d debug %d warning %d info %d off %d",DDLogLevelVerbose,DDLogLevelError,DDLogLevelDebug,DDLogLevelWarning,DDLogLevelInfo,DDLogLevelOff);
+    DDLogError(@"ddloglevel %d",[CLDDLoglevel ddLogLevel]);
+}
+
 - (void) initializeDefaultPreferences{
     // initialize default preferences
     NSDictionary *initialDefauls = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"]];
@@ -46,6 +89,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveContext];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

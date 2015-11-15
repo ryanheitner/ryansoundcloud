@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7E13723B8C08ED803E407B02'
+               BlueprintIdentifier = 'A48C9A342E846F23EF683625'
                BlueprintName = 'FXKeychain'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libFXKeychain.a'>

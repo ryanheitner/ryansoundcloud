@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B431D9961C331BBF2B1A84B4'
+               BlueprintIdentifier = '422CD0C98472FDEEC2EF3EEC'
                BlueprintName = 'StandardPaths'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libStandardPaths.a'>

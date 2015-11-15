@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tracks.h"
 
-@interface SCCollectionViewController : UICollectionViewController
+
+@interface SCCollectionViewController : UICollectionViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+
 
 #pragma mark buttons
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonGridView;
@@ -16,8 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonSearch;
 
 #pragma markcore data
-@property (nonatomic, strong) NSMutableSet               *updatesIndexes;
-
+@property (nonatomic, strong) Tracks  *selectedTrack;
 
 #pragma markbutton actions
 

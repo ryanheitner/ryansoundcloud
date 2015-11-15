@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CocoaSoundCloudAPI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1376614EF3971FB1754445A70BF65873</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BCA873ACEFD12CFFBBDDD253654B42E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,22 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D93EA228B5848391CD2CA0F2289C009</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D66EEFBD87654512B6E9367ADE6BF55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3D923CCD4DDAD4F6DDACCE3185F4C681</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>518C15BD6EE7FFEAE0999EE4988BB1B1</key>
+		<key>3ECFF37A8CFC5D81A2EBB15A4EA8D626</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53A86A3586F40B903014FA535E37601F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DE327C6ADF6FF9175F754B2687490C2</key>
+		<key>8FE2E6DEC60301D72961D6924ABC0C58</key>
 		<dict>
 			<key>primary</key>
 			<true/>
